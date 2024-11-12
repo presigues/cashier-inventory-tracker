@@ -22,7 +22,7 @@ public class CashRegisterDataFIle {
         
      
         // STOCK ---------------------
-     int astock = 30;
+     int astock = 40;
      int bstock = 24;
      int dstock = 80;
      int cstock = 50;
@@ -66,6 +66,19 @@ public class CashRegisterDataFIle {
         }
     }
     
+    public static void readSpecStock(){
+          try {
+            FileReader stockreader = new FileReader("stock.txt");
+            int character;
+ 
+        
+            stockreader.close();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     
     
     
@@ -73,15 +86,19 @@ public class CashRegisterDataFIle {
         
         int stockchoice;
         int choice;
+        
+        boolean exit = false;
         Scanner scan = new Scanner(System.in);
         uptStock();
         
         
         
+      do{  
         
-        
-        System.out.print("Welcome -- press 1 to for cashier panel -- press 2 for inventory panel >> ");
+        System.out.println("WELCOME - PRESS 1 TO OPEN CASHIER PANEL - PRESS 2 TO OPEN INVENTORY PANEL - PRESS 3 TO EXIT");
+        System.out.print(">> ");
         choice = scan.nextInt();
+        
         
         
         switch(choice){
@@ -90,21 +107,77 @@ public class CashRegisterDataFIle {
                 break;
             case 2:
                 
+                boolean stockstat = false;
+                
+               
                 
                 System.out.println("-------------------INVENTORY PANEL-----------------------");
                 System.out.println("CURRENT STOCK --------->");
                 System.out.println("");
                 getStock();
                 System.out.println("");
-                System.out.print("PRESS 1 TO UPDATE STOCK - PRESS 2 TO EXIT ---------> ");      
+                
+                 do{
+                System.out.println("PRESS 1 TO UPDATE STOCK - PRESS 2 TO RETURN - PRESS 3 TO EXIT");   
+                System.out.print(">> ");
                 stockchoice = scan.nextInt();
                 
+                switch(stockchoice){
+                    case 1: // UPDATE STOCK
+                        
+                        int uptstockchoice;
+                        
+                        System.out.println("");
+                        System.out.println("-------------------- UPDATE STOCK -------------------------");
+                        
+                        
+                        System.out.println("");
+                        System.out.println("APPLE - 1");
+                        System.out.println("BARS - 2");
+                        System.out.println("DRINK - 3");
+                        System.out.println("CHIPS - 4");
+                        System.out.println("GUM - 5");
+                        System.out.println("");
+                        System.out.println("WHICH ITEM STOCK TO UPDATE - TYPE ITEM NUMBER");
+                        System.out.print(">>");
+                        uptstockchoice = scan.nextInt();
+                        
+                        switch(uptstockchoice){
+                            case 1:
+                                 System.out.println("");
+                                
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                                
+                        }
+                        
+                        break;
+                    case 2: // RETURN TO MENU
+                        System.out.println("");
+                        System.out.println("-------------------------------------------------------");
+                        System.out.println("");
+                        stockstat = true;
+                        break;
+                    case 3:
+                        exit = true;
+                        break;
+                }
+                
+                }while(stockstat=false);
+                
                 break;
-            default:
-                System.out.println("Welcome -- press 1 to for cashier panel -- press 2 for inventory panel");
-                choice = scan.nextInt();
-                break;
+  
         }
+                
+                
+      }while(exit==false);
         
      
         
