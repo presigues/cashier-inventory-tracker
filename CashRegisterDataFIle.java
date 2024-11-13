@@ -17,38 +17,42 @@ import java.util.Scanner;
  */
 public class CashRegisterDataFIle {
     
-    public static void uptStock(){
-        
-        
-     
-        // STOCK ---------------------
+     // STOCK ---------------------
      int astock = 40;
      int bstock = 24;
      int dstock = 80;
      int cstock = 50;
      int gstock = 20;
         // ----------------------------
+     
+    public void uptStock(){
+        
+        
+     
+       
         
         try {
       FileWriter stockwriter = new FileWriter("stock.txt");
-      stockwriter.write("APPLES >> " + astock);
+      stockwriter.write("APPLES >> " + astock + " - 1");
       stockwriter.write("\r\n"); 
-       stockwriter.write("BARS >> " + bstock);
+       stockwriter.write("BARS >> " + bstock + " - 2");
       stockwriter.write("\r\n");
-       stockwriter.write("DRINKS >> " + dstock);
+       stockwriter.write("DRINKS >> " + dstock+ " - 3");
       stockwriter.write("\r\n");
-       stockwriter.write("CHIPS >> " + cstock);
+       stockwriter.write("CHIPS >> " + cstock+ " - 4");
       stockwriter.write("\r\n");
-       stockwriter.write("GUM >> " + gstock);
+       stockwriter.write("GUM >> " + gstock+ " - 5");
        stockwriter.close();
     
-     
+    
      
      System.out.println("Stock Updated Successful");
    } catch (IOException e) {
       System.out.println("An error occurred.");
     e.printStackTrace();
 }  
+      
+        
 } 
     
     public static void getStock(){
@@ -126,17 +130,14 @@ public class CashRegisterDataFIle {
                     case 1: // UPDATE STOCK
                         
                         int uptstockchoice;
+                        int addor;
                         
                         System.out.println("");
                         System.out.println("-------------------- UPDATE STOCK -------------------------");
                         
                         
                         System.out.println("");
-                        System.out.println("APPLE - 1");
-                        System.out.println("BARS - 2");
-                        System.out.println("DRINK - 3");
-                        System.out.println("CHIPS - 4");
-                        System.out.println("GUM - 5");
+                      getStock();
                         System.out.println("");
                         System.out.println("WHICH ITEM STOCK TO UPDATE - TYPE ITEM NUMBER");
                         System.out.print(">>");
@@ -145,6 +146,20 @@ public class CashRegisterDataFIle {
                         switch(uptstockchoice){
                             case 1:
                                  System.out.println("");
+                                 System.out.println("ADD (1) OR REMOVE (2)");
+                                 System.out.print(">> ");
+                                 addor = scan.nextInt();
+                                 
+                                 if(addor==1){
+                                  System.out.println("");
+                                  System.out.println("ADD HOW MUCH?");
+                                  System.out.print(">> ");
+                                 }
+                                 else if(addor==2){
+                                System.out.println("");
+                                System.out.println("REMOVE HOW MUCH?");
+                                System.out.print(">> ");
+                            }
                                 
                                 break;
                             case 2:
